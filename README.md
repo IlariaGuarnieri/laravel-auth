@@ -11,7 +11,7 @@
 3. Nelle view aggiungere le cartelle guest e admin
 4. customizzate  il layout guest e aggiungere la view home in view/guest
 5. creare il controller Guest/PageController che in index restituisce la view guest.home
-6. Aggiornare la rotta home
+6. Aggiornare la rotta home si
 7. Creare il layout admin.blade
 8. Creare il Admin/DashboardController chi in index punta alla view admin.home che estende il layout admin
 9. Raggruppare le rotte admin protette da Middleware impostando prefisso e nome
