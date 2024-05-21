@@ -14,9 +14,9 @@
 6. Aggiornare la rotta home si
 7. Creare il layout admin.blade  si
 8. Creare il Admin/DashboardController chi in index punta alla view admin.home che estende il layout admin si
-9. Raggruppare le rotte admin protette da Middleware impostando prefisso e nome
-10. Creare la rotta admin/home che punta a DashboardController@index
-11. Modificare RouteServiceProvider in modo che la rotta admin di default sia ‘/admin’
+9. Raggruppare le rotte admin protette da Middleware impostando prefisso e nome si
+10. Creare la rotta admin/home che punta a DashboardController@index si
+11. Modificare RouteServiceProvider in modo che la rotta admin di default sia ‘/admin’ ->nei providers, in app->providers->a riga 20
 12. Nell’header del layout admin collegare la home della dashboard, la home pubblica, mettere il nome dell’utente loggato e il bottone funzionante logout
 
 BONUS
