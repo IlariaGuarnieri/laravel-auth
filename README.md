@@ -18,6 +18,8 @@
 10. Creare la rotta admin/home che punta a DashboardController@index si
 11. Modificare RouteServiceProvider in modo che la rotta admin di default sia ‘/admin’ ->nei providers, in app->providers->a riga 20
 12. Nell’header del layout admin collegare la home della dashboard, la home pubblica, mettere il nome dell’utente loggato e il bottone funzionante logout
+->dentro sia guest sia admin creo cartella partials_>file header.blade.php
+
 
 BONUS
 Creazione del modello `Project` con relativa migrazione, seeder, controller e rotte e stampare la index  dei progetti (protetta da middleware)
