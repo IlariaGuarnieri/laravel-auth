@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Project;
-use App\Functions\Helper as Help;
+use App\Models\Project;             //importo Model
+use App\Functions\Helper as Help;   //importo Helper
 
 class ProjectTableSeeder extends Seeder
 {
