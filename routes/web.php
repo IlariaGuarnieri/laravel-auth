@@ -1,9 +1,13 @@
 <?php
 
-use App\Http\Controllers\Guest\PageController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Guest\PageController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TechnologyController;
+use App\Http\Controllers\Admin\TypeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,12 +22,16 @@ use Illuminate\Support\Facades\Route;
 // rotta guest ROTTE PUBBLICHE
 Route::get('/', [PageController::class, 'index'])->name('home');
 
-//rotte admin protette da middleware
+//ROTTE ADMIN protette da middleware
 Route::middleware(['auth', 'verified'])
   ->prefix('admin') //prefix lo vedro poi nell'url
   ->name('admin.') // . è tutte le pagine com prefisso admin
   ->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('home');
+    // qui inseriamo tutte le rotte delle crud
+    Route::resource('Project', ProjectController::class);
+    Route::resource('Technology', TechnologyController::class);
+    Route::resource('Projects', TypeController::class);
   });
 
 Route::get('/dashboard', function () {
