@@ -27,4 +27,14 @@ aside{
     }
 }
 
+// spazio
+.crud-table{
+    td:first-child{
+        width: 400px;
+    }
+    input{
+        border: none;
+        outline: none;
+    }
+}
 

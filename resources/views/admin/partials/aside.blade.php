@@ -2,7 +2,7 @@
     <nav>
         <ul>
             <li>
-                <a href="#">
+                <a href="{{ route('admin.Project.index') }}">
                     <i class="fa-solid fa-list"></i>
                     Elenco progetti
                 </a>
