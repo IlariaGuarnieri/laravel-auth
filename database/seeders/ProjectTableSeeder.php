@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Functions\Helper;
 use App\Models\Project;
+use App\Functions\Helper as Help;
 
 class ProjectTableSeeder extends Seeder
 {
@@ -18,7 +18,7 @@ class ProjectTableSeeder extends Seeder
         foreach ($data as $item) {
             $new_item = new Project();
             $new_item->title = $item;
-            $new_item->slug = Helper::generateSlug($new_item->title, new Project() ); //tra le parentesi, come previsto in  Helper.php ci va stringa ovvero: $new_item->title ( oppure $item) e model new Project() oppure  Project::class
+            $new_item->slug = Help::generateSlug($new_item->title, new Project() ); //tra le parentesi, come previsto in  Helper.php ci va stringa ovvero: $new_item->title ( oppure $item) e model new Project() oppure  Project::class
 
             $new_item->save();
         }
