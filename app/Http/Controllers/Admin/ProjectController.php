@@ -69,7 +69,24 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        $val_data =$request->validate([
+            'title' =>'required|min:2|max:20'
+        ],
+        [
+            'title.required' => 'devi inserire nome',
+            'title.min' =>'devi inserire :min caratteri',
+            'title.max' =>'devi inserire :max caratteri'
+        ]);
 
+        $exists = Project::where('title', $request->name)->first();
+        if($exists){
+            return redirect()->route('admin.Project.index')->with('error', 'Progetto gia esistente');
+        }else{
+            $val_data['slug'] = Help::generateSlug($new->name, Project::class);
+            $project->update($val_data);
+
+            return redirect()->route('admin.Project.index')->with('success', 'Progetto aggiunto');
+        }
     }
 
     /**

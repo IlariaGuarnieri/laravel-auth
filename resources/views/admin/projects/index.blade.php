@@ -2,6 +2,14 @@
 
 @section('content')
     <h2>Progetti</h2>
+    @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
 
     {{-- messaggio errore se gia c'è --}}
     @if(session('error'))
