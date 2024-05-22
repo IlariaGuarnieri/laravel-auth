@@ -15,11 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// rotta guest
+// rotta guest ROTTE PUBBLICHE
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 //rotte admin protette da middleware
-
 Route::middleware(['auth', 'verified'])
   ->prefix('admin') //prefix lo vedro poi nell'url
   ->name('admin.') // . è tutte le pagine com prefisso admin
@@ -31,6 +30,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// ROTTE AUTH
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
