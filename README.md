@@ -1,4 +1,4 @@
-template per login / PROCEDURE PER AUTH
+PROCEDURE PER AUTH
 ----- Creazione progetto  -----
 2. Scaricare Breeze
 3. installare breeze
