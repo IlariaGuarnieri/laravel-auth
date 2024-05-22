@@ -22,3 +22,5 @@ class Helper{
         return $slug;
     }
 }
+
+//c è count
