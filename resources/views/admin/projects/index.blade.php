@@ -2,6 +2,8 @@
 
 @section('content')
     <h2>Progetti</h2>
+
+
     @if ($errors->any())
     <div class="alert alert-danger" role="alert">
         <ul>
@@ -24,52 +26,40 @@
       </div>
     @endif
 
+    {{-- route corretta {{route('admin.Project.store')}} --}}
     <div class="my-4">
         <form action="{{route('admin.Project.store')}}" method="POST" class="d-flex">
             @csrf
-            <input class="form-control me-2" type="search" placeholder="Nuovo progetto" name="name">
+            <input class="form-control me-2" name="title" type="input" placeholder="New Project" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">invia</button>
         </form>
     </div>
     <table class="table crud-table">
         <thead>
           <tr>
-            <th scope="col">progetti</th>
-            <th scope="col">nomi</th>
+            <th scope="col">id progetto</th>
+            <th scope="col">nome</th>
           </tr>
         </thead>
         <tbody>
-            @foreach ( $projects as $category )
+            {{-- @foreach ( $projects as $category ) --}}
 
+            @foreach ($projects as $project)
             <tr>
+                <td>{{ $project->id }}</td>
+                <td>{{ $project->title }}</td>
                 <td>
-                    <form action="{{route('admin.Project.update', $category)}}"
-                    method="POST"
-                    id="form-edit-{{$category->id}}"
-                    >
+                    <a href="#">View</a>
+                    <a href="#">Edit</a>
+                    <form action="#" method="POST">
                         @csrf
-                        @method('PUT')
-                        <input type="text" value="{{$category->title}}">
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
                     </form>
                 </td>
-                <td>
-                    <button
-                    class="btn btn-warning"
-                    onclick="submitForm({{$category->id}})"
-                    ><i class="fa-solid fa-pen"></i> </button>
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                </td>
             </tr>
-            @endforeach
-        </tbody>
-      </table>
-
-      <script>
-        function submitForm(id){
-            // console.log(id);
-            const form = document.getElementById(`form-editid-${id}`);
-            form.submit();
-        }
-      </script>
+        @endforeach
+    </tbody>
+</table>
 
 @endsection
